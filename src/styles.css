@@ -1,1 +1,103 @@
-/* You can add global styles to this file, and also import other style files */
+.poppins-thin {
+  font-family: "Poppins", sans-serif; font-weight: 100; font-style: normal;
+}
+.poppins-extralight {
+  font-family: "Poppins", sans-serif; font-weight: 200; font-style: normal;
+}
+.poppins-light {
+  font-family: "Poppins", sans-serif; font-weight: 300; font-style: normal;
+}
+.poppins-regular {
+  font-family: "Poppins", sans-serif; font-weight: 400; font-style: normal;
+}
+.poppins-medium {
+  font-family: "Poppins", sans-serif; font-weight: 500; font-style: normal;
+}
+.poppins-semibold {
+  font-family: "Poppins", sans-serif; font-weight: 600; font-style: normal;
+}
+.poppins-bold {
+  font-family: "Poppins", sans-serif; font-weight: 700; font-style: normal;
+}
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif; font-weight: 800; font-style: normal;
+}
+.poppins-black {
+  font-family: "Poppins", sans-serif; font-weight: 900; font-style: normal;
+}
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif; font-weight: 100; font-style: italic;
+}
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif; font-weight: 200; font-style: italic;
+}
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif; font-weight: 300; font-style: italic;
+}
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif; font-weight: 400; font-style: italic;
+}
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif; font-weight: 500; font-style: italic;
+}
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif; font-weight: 600; font-style: italic;
+}
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif; font-weight: 700; font-style: italic;
+}
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif; font-weight: 800; font-style: italic;
+}
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif; font-weight: 900; font-style: italic;
+}
+.rubik-lines-regular {
+  font-family: "Rubik Lines", system-ui; font-weight: 400;
+  font-style: normal;
+}
+
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body, html, *{
+    margin: 0; padding: 0; border: 0; box-sizing: border-box;
+}
+body{
+    background: #1d6582;
+    background: radial-gradient(circle, rgba(29, 101, 130, 1) 10%, rgba(16, 26, 69, 1) 50%);
+}
+main{
+    width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;
+}
+input[type=button]{
+    font-family: "Audiowide", sans-serif; font-weight: 400; font-size: 20px; cursor: pointer; transition: all .1s;
+    border: 2px solid #293438; padding: 0 25px; color: #d1effd; height: 60px;
+    background: transparent; background: #386c81; min-width: 300px;
+    &:hover{
+        background: #d1effd; color: #293438; font-size: 24px;
+    }
+    
+}
+.w-full{ width: 100%; ;}
+.brand-name{
+    text-align: center; padding-bottom: 40px;
+    h1{ font-size: 78px; color: rgb(61, 235, 162); }
+    h2{ font-size: 30px; color: #d1effd; }
+}
+.minnus header{
+  display: flex; align-items: center;
+  h1{ font-size: 38px; margin-right: 20px;}
+  h2{ font-size: 18px;}
+}
+
+.btnActions{
+  display: flex; align-items: center; width: 100%; justify-content: space-between; position: absolute; top: 0; padding: 20px;
+  input[type=button]{
+   width: 50px; height: 50px; min-width: 50px; border-radius: 50%; background: #d1effd; border: none; font-size: 10px; padding: 0; color: #293438;
+  }
+}

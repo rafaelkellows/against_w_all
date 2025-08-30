@@ -1,0 +1,26 @@
+header{
+    > * {
+        display: inline;
+    }
+}
+
+section{
+    text-align: center;
+    p{ font-family: "Audiowide", sans-serif; font-weight: 400; font-size: 20px; color: #ffffff; padding: 0 0 40px 0; }
+    .buttonsList{
+        display: flex; flex-direction: column; align-items: center;
+        > *{
+            margin-bottom: 10px;
+        }
+    }
+}
+
+input[type=button]{
+    font-family: "Audiowide", sans-serif; font-weight: 400; font-size: 20px; cursor: pointer; transition: all .1s;
+    border: 2px solid #293438; padding: 0 25px; color: #d1effd; height: 60px;
+    background: transparent; background: #386c81; width: 300px;
+    &:hover{
+        background: #d1effd; color: #293438; font-size: 24px;
+    }
+    
+}
