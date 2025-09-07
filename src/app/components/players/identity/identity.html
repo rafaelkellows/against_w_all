@@ -1,0 +1,19 @@
+
+<app-header class="minnus"></app-header>
+<section class="content">
+    <p>Defina o nome dos jogadores.</p>
+    
+    <form action="/">
+    @for (item of [].constructor(intPlayers); track $index) {
+        <label for="player_{{ $index }}">Player Name {{ $index + 1 }}</label>
+        <input type="text" (change)="onInputChange($event, $index)" value="{{ players_name[$index] }}" name="player_{{ $index }}" id="player_{{ $index }}">
+    }
+    <div class="btnActions arrow_forward">
+        <button (click)="nextStep()">
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+        
+    </div>
+    </form>
+
+</section>

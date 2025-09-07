@@ -9,6 +9,7 @@ import { Header } from '../header/header';
 })
 export class Start {
   @Input() currentPage: string = ''; // Declares an input property
+  @Input() intPlayers:number = 0;
   @Output() execAudioHover = new EventEmitter<any>();
   @Output() execAudioSelected = new EventEmitter<any>();
   @Output() newCurrentPage = new EventEmitter<any>();

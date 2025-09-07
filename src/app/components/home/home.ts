@@ -11,6 +11,7 @@ import { Header } from '../header/header';
   styleUrl: './home.css' 
 })
 export class Home{
+  @Input() intPlayers:number = 0;
   @Input() currentPage: string = ''; // Declares an input property
   @Output() execAudioHover = new EventEmitter<any>();
   @Output() execAudioSelected = new EventEmitter<any>();

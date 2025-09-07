@@ -8,14 +8,14 @@
             @for (item of [].constructor(maxJogadores); track $index; let p = $index) {
                 @switch (p) {
                     @case (0) {
-                        <input type="button" (click)="callAudioSelected()" (pointerover)="callAudioHover()" value="SOLO">
+                        <input type="button" (click)="gameType(1);" (pointerover)="callAudioHover()" value="SOLO">
                     }
                     @case (1) {
-                        <input type="button" (click)="callAudioSelected()" (pointerover)="callAudioHover()" value="DUPLA">
+                        <input type="button" (click)="gameType(2);" (pointerover)="callAudioHover()" value="DUPLA">
                     }
                     
                     @default {
-                        <input type="button" (click)="callAudioSelected()" (pointerover)="callAudioHover()" value="{{ p + 1 }} Jogadores">
+                        <input type="button" (click)="gameType(p+1)" (pointerover)="callAudioHover()" value="{{ p + 1 }} Jogadores">
                     }
                 }
 

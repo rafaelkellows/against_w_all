@@ -4,23 +4,28 @@ import { Actions } from './components/button/actions/actions';
 import { Home } from './components/home/home';
 import { Start } from './components/start/start';
 import { Quantity } from './components/players/quantity/quantity';
+import { Identity } from './components/players/identity/identity';
 
 @Component({
   selector: 'app-root',
-  imports: [ Home, Start, Quantity, Actions],
+  imports: [ Home, Start, Quantity, Identity, Actions],
   template: `
   <main>
 
       @switch (currentPage) {
         @case ('home') {
-          <app-home [currentPage]="currentPage" (newCurrentPage)="changePage($event)" (execAudioHover)="audioHover()" (execAudioSelected)="audioSelected()"></app-home>
+          <app-home [currentPage]="currentPage" [intPlayers]="intPlayers" (newCurrentPage)="changePage($event)" (execAudioHover)="audioHover()" (execAudioSelected)="audioSelected()"></app-home>
         }
         @case ('start') {
-          <app-start [currentPage]="currentPage" (newCurrentPage)="changePage($event)" (execAudioHover)="audioHover()" (execAudioSelected)="audioSelected()"></app-start>
+          <app-start [currentPage]="currentPage" [intPlayers]="intPlayers" (newCurrentPage)="changePage($event)" (execAudioHover)="audioHover()" (execAudioSelected)="audioSelected()"></app-start>
         }
         @case ('quantity') {
           <app-actions class="w-full"></app-actions>
-          <app-quantity [currentPage]="currentPage" [maxJogadores]="maxJogadores" (newCurrentPage)="changePage($event)" (execAudioHover)="audioHover()"  (execAudioSelected)="audioSelected()"></app-quantity>
+          <app-quantity [currentPage]="currentPage" [intPlayers]="intPlayers" (newIntPlayers)="changePlayers($event)" [maxJogadores]="maxJogadores" (newCurrentPage)="changePage($event)" (execAudioHover)="audioHover()" (execAudioSelected)="audioSelected()"></app-quantity>
+        }
+        @case ('identity') {
+          <app-actions class="w-full"></app-actions>
+          <app-identity [players_name]="players_name" [currentPage]="currentPage" [maxJogadores]="maxJogadores" [intPlayers]="intPlayers" (newItemEvent)="pushToArray($event)" (newIntPlayers)="changePlayers($event)" (newCurrentPage)="changePage($event)" (execAudioHover)="audioHover()"  (execAudioSelected)="audioSelected()"></app-identity>
         }
         @default {
           <app-home></app-home>
@@ -34,12 +39,42 @@ export class App {
   protected readonly title = signal('awa_game');
   currentPage:string = 'home';
   maxJogadores:number = 5;
-
+  meusJogadores = 0; // Many Players
+  intPlayers:number = 0;
+  players_name:string[] = []; // 'Rafael Kellows','Renato Nasc.'
+  
   changePage(data: any){
     this.currentPage = data;
     if(data == 'start'){
       this.audioBackground();
     }
+  }
+
+  changePlayers(data: any){
+    this.intPlayers = data;
+    
+  }
+
+  pushToArray(item: any) {
+   
+    // console.log( 'this.meusJogadores = ' + this.meusJogadores )
+    // console.log( 'this.players_name = ' + this.players_name + this.players_name.length )
+    if(!this.players_name.length && this.players_name.length < this.meusJogadores){
+      // alert('Vou adicionar ' + item[0] + ' item ' + this.players_name.length + ' - ' + this.meusJogadores);
+      this.players_name.push(item[0]); // Push the received item into the array
+    }else{
+      
+      if(!this.players_name[item[1]]){
+        // alert('Vou adicionar ' + item[0] + '' + this.players_name.length + ' - ' + this.meusJogadores);
+        this.players_name.push(item[0]);
+      }else{
+        // alert('Vou mudar item ' + this.players_name[item[1]] + ' por ' + item[0])
+        this.players_name[item[1]] = item[0];
+      }
+    }
+    // this.myNumber = Math.floor(this.catGameItens.length / this.meusJogadores);
+    console.log( 'this.players_name = ' + this.players_name + this.players_name.length )
+    
   }
 
   audioHover() {
